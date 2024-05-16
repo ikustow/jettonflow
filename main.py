@@ -39,7 +39,7 @@ def send_message(request: CreateMessageRequest):
             jetton_master_address=JETTON_MASTER,
             jettons_amount=1
         )
-        response_details = f"This is your response including the variable: {response}"
+        response_details = f"This is your response including the variable: {new_owner_address},  {JETTON_MASTER}"
         return {"message": "Success", "response": response_details}
 
     except Exception as e:
