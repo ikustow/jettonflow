@@ -1,0 +1,8 @@
+cryptography
+tonsdk
+fastapi
+gunicorn
+uvicorn
+requests
+tontools
+asyncio
