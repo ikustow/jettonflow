@@ -39,8 +39,8 @@ def send_message(request: CreateMessageRequest):
             jetton_master_address=JETTON_MASTER,
             jettons_amount=1
         )
-
-        return {"message": "Success", "response": response}
+        response_details = f"This is your response including the variable: {response}"
+        return {"message": "Success", "response": response_details}
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
