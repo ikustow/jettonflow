@@ -24,7 +24,7 @@ def send_message(request: CreateMessageRequest):
     key = request.key.encode()
     mnemonic = request.mnemonic.encode()
     JETTON_MASTER = request.master
-    new_owner_address = Address(request.new_owner_address)
+    new_owner_address = request.new_owner_address
     decrypted_mnemonic = decrypt_strings(mnemonic, key)
 
     if not mnemonic:
