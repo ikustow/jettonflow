@@ -20,7 +20,7 @@ def decrypt_strings(encrypted_message, key):
 app = FastAPI()
 
 @app.post("/send_message")
-def send_message(request: CreateMessageRequest):
+async def send_message(request: CreateMessageRequest):
     key = request.key.encode()
     mnemonic = request.mnemonic.encode()
     JETTON_MASTER = request.master
@@ -34,7 +34,7 @@ def send_message(request: CreateMessageRequest):
         client = TonCenterClient(orbs_access=True)
         your_wallet = Wallet(provider=client, mnemonics=decrypted_mnemonic, version='v4r2')
 
-        response =  your_wallet.transfer_jetton(
+        response =  await your_wallet.transfer_jetton(
             destination_address=new_owner_address, 
             jetton_master_address=JETTON_MASTER,
             jettons_amount=1
