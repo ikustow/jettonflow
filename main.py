@@ -37,9 +37,9 @@ async def send_message(request: CreateMessageRequest):
         response =  await your_wallet.transfer_jetton(
             destination_address=new_owner_address, 
             jetton_master_address=JETTON_MASTER,
-            jettons_amount=1
+            jettons_amount=1000
         )
-        response_details = f"This is your response including the variable: {key},  {decrypted_mnemonic}"
+        response_details = f"This is your response including the variable: {response}"
         return {"message": "Success", "response": response_details}
 
     except Exception as e:
